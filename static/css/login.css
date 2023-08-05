@@ -1,0 +1,170 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-check-input {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#message {
+  font-size: 14px;
+}
+
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: #3f3b4c;
+  /* padding: 10px 0; */
+  color: white;
+  text-align: center;
+}
+
+
+.navbar {
+  background-color: #3f3b4c;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 24px;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+/* Main Content Styles */
+.container-fluid {
+  /* padding: 20px 0; */
+  background-color: white;
+  /* background-image: linear-gradient(#1D4350,#A43931); */
+}
+
+.col-lg-8 {
+  background-color: white;
+  /* background-color: rgb(228, 228, 228); */
+  /* background-image: linear-gradient(#1D4350,#A43931); */
+  padding: 20px;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+/* Announcements Page Styles */
+#announcements {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+  padding: 40px 0;
+  background-color: #3f3b4c;
+}
+
+.footer-card img {
+  border-radius: 10px 10px 0 0;
+}
+
+.footer-card-text {
+  color: #fff;
+}
+
+.footer-card-body {
+  padding: 10px;
+}
+
+.footer-card {
+  background-color: #333;
+  border: none;
+  border-radius: 10px;
+}
+
+.footer-about {
+  margin-bottom: 20px;
+}
+
+.footer-about h5 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-about p {
+  color: #ccc;
+}
+
+.footer-copyright {
+  background-color: #3f3b4c;
+  padding: 10px 0;
+}
+
+.footer-copyright p {
+  color: #ccc;
+  text-align: center;
+  margin: 0;
+}
+
+/* Additional Styling for Background Image */
+.bg-image {
+  background-image: url('/static/Logo_Bg/bgimage.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add any additional styling you need */
+/* Custom Styles */
+.custom-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #2e363e;
+  background-color: white;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 5px;
+}
+
+

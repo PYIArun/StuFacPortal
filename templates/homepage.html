@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/homepage.css">
+  <title>StuFac</title>
+</head>
+<body>
+
+  
+  <header class="bg-primary text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">
+        <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
+      </a>
+      <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('announcement') }}">Announcements</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="bg-overlay py-5 bg-image">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <img src="/static/Cards/announcements.jpg" class="card-img-top" alt="Image 1">
+            <div class="card-body">
+              <p class="card-text">Announcement Board</p>
+              <a href="{{ url_for('announcement') }}" class="btn btn-primary btn-block">Go To</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <img src="/static/Cards/resources.jpg" class="card-img-top" alt="Image 2">
+            <div class="card-body">
+              <p class="card-text">Resources Folder</p>
+              <a href="{{ url_for('announcement') }}" class="btn btn-primary btn-block">Go To</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <img src="/static/Cards/faculty.png" class="card-img-top" alt="Image 3">
+            <div class="card-body">
+              <p class="card-text">Faculty</p>
+              <a href="{{ url_for('announcement') }}" class="btn btn-primary btn-block">Go To</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id = "about" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>About StuFac</h2>
+          <p>Welcome to the Student-Faculty Communication Portal. The portal aims to provide a user-friendly interface where faculty members can post important announcements related to courses, events, and deadlines. Additionally, the portal allows faculty members to share educational resources such as lecture notes, study materials, and presentations with their students. Stay in the loop with important announcements and find helpful resources uploaded by teachers. Join discussions, ask questions, and even chat with teachers during office hours. Our goal is to make learning and communication simple and effective for everyone. Join us and be part of this collaborative learning journey!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>About Team</h2>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <img src="https://praqrti.netlify.app/Team_files/WebDeveloper/arun3472.jpg" class="card-img-top" alt="Team Member 1">
+            <div class="card-body">
+              <p class="card-text">Arun Chandra</p>
+              <p class="card-text">B.Sc. Hons CS</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <img src="/static/Team/devender.png" class="card-img-top" alt="Team Member 2">
+            <div class="card-body">
+              <p class="card-text">Kunusoth Devender</p>
+              <p class="card-text">B.Sc. Hons CS</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <img src="/static/Team/nitin.png" class="card-img-top" alt="Team Member 3">
+            <div class="card-body">
+              <p class="card-text">Nitin Dhiman</p>
+              <p class="card-text">B.Sc. Hons CS</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <img src="/static/Team/bhanu.png" class="card-img-top" alt="Team Member 4">
+            <div class="card-body">
+              <p class="card-text">Ramavath Bhanu</p>
+              <p class="card-text">B.Sc. Hons CS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>&copy; 2023 StuFac. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

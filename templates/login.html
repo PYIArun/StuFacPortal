@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/login.css">
+  <title>StuFac</title>
+</head>
+<body>
+    <header class="bg-primary text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
+          </a>
+          <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('announcement') }}">Announcements</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+  <main class="container-fluid">
+    <div class="container">
+      <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-lg-5 col-md-8">
+          <div class="card shadow">
+            <div class="card-body">
+              <h3 class="card-title text-center">Login</h3>
+              <form id="login-form" action="{{url_for('/login')}}" method="POST">
+                <div class="form-group">
+                  <label for="email">Email ID:</label>
+                  <input type="email" class=" form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                  <label>Role:</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role" id="faculty" value="faculty">
+                    <label class="form-check-label" for="faculty">Faculty</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role" id="student" value="student">
+                    <label class="form-check-label" for="student">Student</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+              <div id="message" class="mt-3 text-center text-danger"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>&copy; 2023 StuFac. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
