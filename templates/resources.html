@@ -4,37 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/announcement.css"> <!-- Add your custom CSS if needed -->
+  <link rel="stylesheet" href="/static/css/resources.css">
   <title>StuFac</title>
 </head>
 <body>
-    <header class="bg-primary text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="#">
-            <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
-          </a>
-          <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a class="nav-link" href="{{ url_for('announcement') }}">Announcements</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+  
+  <header class="bg-primary text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">
+        <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
+      </a>
+      <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('announcements') }}">Announcements</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          
+          {% if session['email'] %}
+          <li class="nav-item"><a class="nav-link" href="{{url_for('logout')}}">Logout</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <main class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-8">
 
-        <!-- Your Announcements Page HTML -->
         <header class="custom-header">
             <div class="logo">
                 <img src="/static/files.png" alt="Logo" width="70">
-
             </div>
             <div class="text">
                 <h1>Resources</h1>
@@ -44,16 +48,103 @@
         <main class="container mt-4">
           <div class="card mb-4">
               <div class="card-body">
-                  <textarea id="announcementText" class="form-control mb-2" placeholder="Create an announcement"></textarea>
-                  <button id="postButton" class="btn btn-primary">Post</button>
+                  <form id="resourceForm" enctype="multipart/form-data">
+                      <div class="mb-3">
+                          <label for="resourceTitle" class="form-label">Title</label>
+                          <input type="text" class="form-control" id="resourceTitle" name="title" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="resourceDescription" class="form-label">Description (if any)</label>
+                          <textarea class="form-control" id="resourceDescription" name="description" rows="1"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="resourceFiles" class="form-label">Upload Files (Max 5)</label>
+                          <input type="file" class="form-control" id="resourceFiles" name="files[]" accept="*/*" multiple required>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Upload</button>
+                  </form>
               </div>
           </div>
-          
-          <div id="announcements"></div>
-        </main>
+      
+          <div id="resources">
+              <!-- Display uploaded resources here -->
+          </div>
+      </main>
 
-        <script src="/static/scripts/announcement.js"></script> <!-- Include your JavaScript file -->
+      <script>
+        document.getElementById("resourceForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
 
+    fetch('/upload_resource', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            form.reset();
+            fetchResources(); // Fetch and display updated resources
+        }
+    });
+});
+
+function fetchResources() {
+    fetch('/get_resources')
+        .then(response => response.json())
+        .then(data => {
+            const resourcesDiv = document.getElementById("resources");
+            resourcesDiv.innerHTML = "";
+
+            data.resources.forEach(resource => {
+                const resourceCard = document.createElement("div");
+                resourceCard.className = "card mb-2";
+
+                const cardBody = document.createElement("div");
+                cardBody.className = "card-body";
+
+                const title = document.createElement("h5");
+                title.className = "card-title";
+                title.textContent = resource.title;
+
+                const description = document.createElement("p");
+                description.className = "card-text";
+                description.textContent = resource.description;
+
+                const footer = document.createElement("small");
+                footer.className = "text-muted";
+                footer.textContent = `Uploaded by ${resource.name} on ${resource.date} at ${resource.time}`;
+
+                cardBody.appendChild(title);
+                cardBody.appendChild(description);
+                cardBody.appendChild(footer);
+
+                if (resource.files.length > 0) {
+                    const filesList = document.createElement("ul");
+                    filesList.className = "list-group mt-2";
+
+                    resource.files.forEach(file => {
+                        const listItem = document.createElement("li");
+                        listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+                        listItem.innerHTML = `<a href="/static/resources/${file.filename}" download>${file.filename}</a><a href="/delete_resource/${file.id}" class="btn btn-danger btn-sm">Delete</a>`;
+                        
+                        filesList.appendChild(listItem);
+                    });
+
+                    cardBody.appendChild(filesList);
+                }
+
+                resourceCard.appendChild(cardBody);
+                resourcesDiv.appendChild(resourceCard);
+            });
+        });
+  }
+
+  fetchResources();
+    </script>
+ 
       </div>
     </div>
   </main>
@@ -71,5 +162,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+
 </body>
 </html>

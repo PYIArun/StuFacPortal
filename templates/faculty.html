@@ -8,23 +8,29 @@
   <title>StuFac</title>
 </head>
 <body>
+     
     <header class="bg-primary text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="#">
-            <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
-          </a>
-          <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a class="nav-link" href="{{ url_for('announcement') }}">Announcements</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
+        </a>
+        <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('announcement') }}">Announcements</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            
+            {% if session['email'] %}
+            <li class="nav-item"><a class="nav-link" href="{{url_for('logout')}}">Logout</a></li>
+            {% else %}
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </header>
 
   <main class="container-fluid">
     <div class="row justify-content-center">
