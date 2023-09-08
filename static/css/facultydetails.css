@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+/* Global Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+
+/* header {
+    padding: 10px 0;
+  } */
+
+.navbar {
+    background-color: #3f3b4c;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 24px;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+/* Card Styles */
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    border-radius: 10px 10px 0 0;
+}
+
+.card-text {
+    color: #333;
+}
+
+.card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+
+footer {
+    padding: 40px 0;
+}
+
+.footer-card img {
+    border-radius: 10px 10px 0 0;
+}
+
+.footer-card-text {
+    color: #fff;
+}
+
+.footer-card-body {
+    padding: 10px;
+}
+
+.footer-card {
+    background-color: #333;
+    border: none;
+    border-radius: 10px;
+}
+
+.footer-about {
+    margin-bottom: 20px;
+}
+
+.footer-about h5 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-about p {
+    color: #ccc;
+}
+
+.footer-copyright {
+    background-color: #3f3b4c;
+    padding: 10px 0;
+}
+
+.footer-copyright p {
+    color: #ccc;
+    text-align: center;
+    margin: 0;
+}
+
+/* Background Overlay */
+.bg-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px 0;
+}
+
+/* Additional Styling for Background Image */
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.bg-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px 0;
+}
+
+.bg-image {
+    background-image: url('/static/Logo_Bg/bgimage.jpg');
+    /* background-image: linear-gradient(#c2e59c, #64b3f4); */
+
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; */
+}
+
+.container {}
+
+.Faculty-heading {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.faculty-details-card-container {
+    background-color: #f2e8cb;
+    height: 150px;
+    width: 320px;
+    padding: 10px;
+    border-radius: 4px;
+
+    align-items: center;
+}
+
+.faculty-images {
+    max-width: 100px;
+    width: 100%;
+    height: 120px;
+    border-radius: 0;
+    margin-right: 20px;
+}
+
+.faculty-images-sunitha {
+    max-width: 100px;
+    width: 200%;
+    height: 123px;
+    border-radius: 0;
+    margin-right: 20px;
+    padding-right: 9px;
+    text-align: center;
+}
+
+.faculty-name-sunitha {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.faculty-details {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 20px;
+
+}
+
+.faculty-name-sunitha-heading {
+    font-weight: 600;
+
+    margin-bottom: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.faculty-name {
+    font-weight: 600;
+
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.custom-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #2e363e;
+    background-color: white;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 5px;
+}
+.logo{
+    padding-right: 8px;
+    padding-bottom: 5px;
+}

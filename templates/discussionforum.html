@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/discussion.css"> <!-- Add your custom CSS if needed -->
+    <title>StuFac</title>
+</head>
+
+<body>
+    <header class="bg-primary text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
+          </a>
+          <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('announcements') }}">Announcements</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('resources') }}">Resources</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('faculty')}}">Faculty</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              
+              {% if session['email'] %}
+              <li class="nav-item"><a class="nav-link" href="{{url_for('logout')}}">Logout</a></li>
+              {% else %}
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+    <!-- <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                 Your Announcements Page HTML -->
+                <header class="custom-header">
+                    <div class="logo">
+                        <img src="/static/speaker.png" alt="Logo" width="70">
+
+                    </div>
+                    <div class="text">
+                        <h1 class="Faculty-heading">Faculty</h1>
+                        <hr style="color:black;">
+                    </div>
+                </header>
+              
+                
+                <title>Group Chat</title>
+                <style>
+                  body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    background-color: #f5f5f5;
+                  }
+                  
+                  #header {
+                    background-color: #333;
+                    color: white;
+                    text-align: center;
+                    padding: 10px 0;
+                  }
+                  
+                  #chat-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 20px;
+                  }
+                  
+                  .message {
+                    /* background-color:; */
+                    color: black;
+                    padding: 10px;
+                    margin: 5px 0;
+                    border-radius: 10px;
+                    max-width: 70%;
+                    align-self: flex-start;
+                  }
+                  
+                  /* .user-message {
+                    background-color: #28a745;
+                    align-self: flex-end;
+                  } */
+                  
+                  .message-info {
+                    color: #777;
+                    font-size: 0.8em;
+                    margin-bottom: 2px;
+                  }
+                  
+                  #message-box {
+                    display: flex;
+                    margin-top: auto;
+                    background-color: white;
+                    border-top: 1px solid #ccc;
+                    padding: 10px;
+                  }
+                  
+                  #message-input {
+                    flex: 1;
+                    border: none;
+                    padding: 5px;
+                    border-radius: 5px;
+                    margin-right: 10px;
+                  }
+                  
+                  #send-button {
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                  }
+                </style>
+                </head>
+                <body>
+                  <div id="header">
+                    <h1>Discussion Forum</h1>
+                  </div>
+                  
+                  <div id="chat-container">
+                    <div class="message">
+                      <div class="message-info">John</div>
+                      Hello there! This is a sample message.
+                    </div>
+                    <div class="message">
+                      <div class="message-info">You</div>
+                      Sure! Feel free to ask any questions.
+                    </div>
+                    <div class="message">
+                      <div class="message-info">Jane</div>
+                      Great, thank you for your help!
+                    </div>
+                    <!-- Add more messages here -->
+                  </div>
+                  
+                  <div id="message-box">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <button id="send-button">Send</button>
+                  </div>
+                
+                
+
+                <footer class="bg-dark text-white">
+                    <div class="container py-3">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>&copy; 2023 StuFac. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            </body>

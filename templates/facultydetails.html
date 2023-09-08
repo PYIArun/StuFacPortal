@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/announcement.css"> <!-- Add your custom CSS if needed -->
+    <link rel="stylesheet" href="/static/css/facultydetails.css"> <!-- Add your custom CSS if needed -->
+    <title>StuFac</title>
+</head>
+
+<body>
+        
+    <header class="bg-primary text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="/static/Logo_Bg/hansrajlogo.png" alt="Logo" width="40">
+          </a>
+          <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">StuFac Communication Portal</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('announcements') }}">Announcements</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('resources') }}">Resources</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('faculty')}}">Faculty</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              
+              {% if session['email'] %}
+              <li class="nav-item"><a class="nav-link" href="{{url_for('logout')}}">Logout</a></li>
+              {% else %}
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <!-- Your Announcements Page HTML -->
+                <header class="custom-header">
+                    <div class="logo">
+                        <img src="/static/faculty.png" alt="Logo" width="40">
+                    </div>
+                    <div class="text">
+                        <h1>Faculty</h1>
+                    </div>
+                </header>
+
+
+                <!--  -->
+                <main class=" container mt-2">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://res.cloudinary.com/bhanuimages/image/upload/v1691227524/sanjay_batra_bbjjvw.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Sanjay Batra</h1>
+                                        <p>Associate Professor</p>
+                                        <p>M.C.A.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/userImg/52/User-Image-9a1158154dfa42caddbd0694a4e9bdc8-e2ca5c34b7d305410c3845de59db0e87.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Harmeet Kaur</h1>
+                                        <p>Associate Professor</p>
+                                        <p>M.C.A., Ph.D</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://res.cloudinary.com/bhanuimages/image/upload/v1691262701/baljeet_kaur_hmzzob.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Baljeet Kaur</h1>
+                                        <p>Professor</p>
+                                        <p>M.C.A., Ph.D</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/profile_pics/54.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Manoj Agarwal</h1>
+                                        <p>Associate Professor</p>
+                                        <p>M.C.A., Ph.D</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://res.cloudinary.com/bhanuimages/image/upload/v1691551034/alka_kurana_3_hjnxqy.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Alka Khurana</h1>
+                                        <p>Associate Professor</p>
+                                        <p>M.C.A, Pursuing Ph.D</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://res.cloudinary.com/bhanuimages/image/upload/v1691550863/sunitha_chandan_2_dtqds2.jpg" class="faculty-images-sunitha">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name-sunitha-heading">Sunita Chand</h1>
+                                        <p class="faculty-name-sunitha">Associate Professor</p>
+                                        <p class="faculty-name-sunitha">M.C.A., M.Phil(CS), M.Tech(CSE), Ph.D</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/userImg/146/User-Image-a5e00132373a7031000fd987a3c9f87b-930b9efc47ae6e81e49c7db9fb0f759f.jpeg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Manju</h1>
+                                        <p>Associate Professor</p>
+                                        <p>M.Sc. M.Tech Ph.D. UGC-NET</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/userImg/147/User-Image-8d5e957f297893487bd98fa830fa6413-c3bd49000104ea5a65800662fa684ab7.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Aarti Goel</h1>
+                                        <p>Associate Professor</p>
+                                        <p>M.C.A., M.Phil., Pursuing Ph. D.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/userImg/149/User-Image-f2217062e9a397a1dca429e7d70bc6ca-d48584105604a859f778f63a3909e8a4.jpg" class="faculty-images-sunitha">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Divya Kwatra</h1>
+                                        <p>Associate Professor</p>
+                                        <p>MCA, UGC NET, Pursuing Ph.D</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/userImg/348/User-Image-01386bd6d8e091c2ab4c7c7de644d37b-a0e6d04637ea807dba2dd8c52b721cbd.jpeg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Suyash Kumar</h1>
+                                        <p>Associate Professor</p>
+                                        <p>B.Tech., M.Tech., Ph.D (Pursuing)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 pb-3">
+                                <div class="shadow-lg faculty-details-card-container d-flex flex-row align-items-center">
+                                    <div>
+                                        <img src="https://www.hansrajcollege.ac.in/files/userImg/411/User-Image-17d63b1625c816c22647a73e1482372b-2b3e34e783ede46ec695acc084721e27.jpg" class="faculty-images">
+                                    </div>
+                                    <div class="faculty-details">
+                                        <h1 class="faculty-name">Vidhi Khanduja</h1>
+                                        <p>Associate Professor</p>
+                                        <p>Ph.D, M.Tech, B.Tech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--  <div class="card-body">
+                 <textarea id="announcementText" class="form-control mb-2" placeholder="Create an announcement"></textarea>
+                 <button id="postButton" class="btn btn-primary">Post</button>
+             </div> -->
+            </div>
+
+            <div id="announcements"></div>
+    </main>
+    <!--  -->
+
+    </div>
+    </div>
+    </main>
+
+    <footer class="bg-dark text-white">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2023 StuFac. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
